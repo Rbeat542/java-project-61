@@ -23,6 +23,9 @@ public class Engine {
                 case "Calcgame":
                     Calcgame.gameLogic(name);
                     break;
+                case "Gcdgame":
+                    Gcdgame.gameLogic(name);
+                    break;
             }
         }
         System.out.println("Congratulations, " + name + "!");

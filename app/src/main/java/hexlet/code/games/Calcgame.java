@@ -15,8 +15,10 @@ public class Calcgame {
         var random1 = rand.nextInt(10);
         var random2 = rand.nextInt(10);
         var random3 = rand.nextInt(3);
-        int answer = 999;
+        int answer = 0;
+        String textAnswer = "";
         int calculation = 0;
+        int flagOfInt = 1;
         String[] operationsArray = {"+", "-", "*"};
         var operation = operationsArray[random3];
         System.out.println("Question: " + random1 + operation + random2);
@@ -24,7 +26,9 @@ public class Calcgame {
         if (in.hasNextInt()) {
             answer = in.nextInt();
         } else {
+            flagOfInt = 0;
             //System.out.println("Извините, но это не число. Попробуйте снова!");
+            textAnswer = in.next();
         }
         switch (operation) {
             case "+":
@@ -41,8 +45,10 @@ public class Calcgame {
         if (answer == calculation) {
             System.out.println("Correct!");
         } else {
-            if (answer != 999) {
+            if (flagOfInt == 1) {
                 System.out.println("'" + answer + "'" + " is wrong answer ;(.");
+            } else {
+                System.out.println("'" + textAnswer + "'" + " is wrong answer ;(.");
             }
             System.out.println("Correct answer was '" + calculation + "'");
             System.out.println("Let's try again," + nameOfUser);
