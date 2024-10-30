@@ -29,6 +29,9 @@ public class Engine {
                 case "Progressiongame":
                     Progressiongame.gameLogic(name);
                     break;
+                case "Primegame":
+                    Primegame.gameLogic(name);
+                    break;
             }
         }
         System.out.println("Congratulations, " + name + "!");

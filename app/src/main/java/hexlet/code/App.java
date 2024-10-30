@@ -12,6 +12,7 @@ public class App {
         System.out.println("3 - Calculation");
         System.out.println("4 - GCD");
         System.out.println("5 - Progression");
+        System.out.println("6 - Prime");
         System.out.println("0 - Exit");
         System.out.print("Your choice:");
         Scanner greetDialog = new Scanner(System.in);
@@ -41,6 +42,10 @@ public class App {
         }
         if (option == 5)  {
             Progressiongame.game();
+            greetDialog.close();
+        }
+        if (option == 6)  {
+            Primegame.game();
             greetDialog.close();
         }
     }
