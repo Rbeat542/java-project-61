@@ -26,6 +26,9 @@ public class Engine {
                 case "Gcdgame":
                     Gcdgame.gameLogic(name);
                     break;
+                case "Progressiongame":
+                    Progressiongame.gameLogic(name);
+                    break;
             }
         }
         System.out.println("Congratulations, " + name + "!");

@@ -11,6 +11,7 @@ public class App {
         System.out.println("2 - Even");
         System.out.println("3 - Calculation");
         System.out.println("4 - GCD");
+        System.out.println("5 - Progression");
         System.out.println("0 - Exit");
         System.out.print("Your choice:");
         Scanner greetDialog = new Scanner(System.in);
@@ -34,9 +35,12 @@ public class App {
             Calcgame.game();
             greetDialog.close();
         }
-
         if (option == 4)  {
             Gcdgame.game();
+            greetDialog.close();
+        }
+        if (option == 5)  {
+            Progressiongame.game();
             greetDialog.close();
         }
     }
