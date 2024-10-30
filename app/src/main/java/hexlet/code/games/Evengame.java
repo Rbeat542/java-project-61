@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Evengame {
     public static void game() {
-        Engine.game("Evengame", "Answer 'yes' if the number is even, otherwise answer 'no'");
+        Engine.game("Evengame", "Answer 'yes' if the number is even, otherwise answer 'no'.");
     }
 
     public static void gameLogic(String nameOfUser) {
