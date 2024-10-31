@@ -32,7 +32,7 @@ public class Progressiongame {
 			}
 			stringToDisplay = stringToDisplay.trim();
 			String textAnswer = "";
-			System.out.println("Question " + stringToDisplay);
+			System.out.println("Question: " + stringToDisplay);
 			System.out.print("Your answer: ");
 			if (in.hasNextInt()) {
 				answer = in.nextInt();
