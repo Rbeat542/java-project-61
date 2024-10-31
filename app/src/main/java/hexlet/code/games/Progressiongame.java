@@ -52,7 +52,7 @@ public class Progressiongame {
 				}
 
 				System.out.println("Correct answer was '" + correctAnswer + "'");
-				System.out.println("Let's try again," + nameOfUser);
+				System.out.println("Let's try again, " + nameOfUser + "!");
 				break;
 			}
 			if (i == 4) {
