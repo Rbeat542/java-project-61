@@ -24,7 +24,7 @@ public class Primegame {
 			} else {
 				System.out.println("'" + answer + "'" + " is wrong answer ;(.");
 				System.out.println("Correct answer was '" + isPrime(random) + "'");
-				System.out.println("Let's try again," + nameOfUser);
+				System.out.println("Let's try again, " + nameOfUser + "!");
 				break;
 			}
 			if (i == 4) {

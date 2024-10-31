@@ -53,7 +53,7 @@ public class Calcgame {
                     System.out.println("'" + textAnswer + "'" + " is wrong answer ;(.");
                 }
                 System.out.println("Correct answer was '" + calculation + "'");
-                System.out.println("Let's try again," + nameOfUser);
+                System.out.println("Let's try again, " + nameOfUser + "!");
                 break;
             }
             if (i == 4) {
