@@ -12,48 +12,51 @@ public class Progressiongame {
 	public static void gameLogic(String nameOfUser) {
 		var rand = new Random();
 		Scanner in = new Scanner(System.in);
-		String stringToDisplay = "";
-		int answer = 0;
-		int correctAnswer = 999;
-		int[] arrayOfInt  = new int [10];
-		var random1 = rand.nextInt(80);
-		var random2 = rand.nextInt(9);
-		int flagOfInt = 1;
-		//System.out.println("Starting digit = " + random1);
-		//System.out.println("Position in array to guess " + random2);
-		for (int i = 0; i < 10; i++ ) {  //заполнение массива из 10 цифр
-			arrayOfInt[i] = random1 + i;
-			if (i == random2) {
-				stringToDisplay = stringToDisplay + " " + "..";
-				correctAnswer = arrayOfInt[i];
+		var i =1;
+		while (i <= 3 ) {
+			String stringToDisplay = "";
+			int answer = 0;
+			int correctAnswer = 999;
+			int[] arrayOfInt  = new int [10];
+			var random1 = rand.nextInt(80);
+			var random2 = rand.nextInt(9);
+			int flagOfInt = 1;
+			for (int i2 = 0; i2 <=9; i2++ ) {  //заполнение массива из 10 цифр
+				arrayOfInt[i2] = random1 + i2;
+				if (i2 == random2) {
+					stringToDisplay = stringToDisplay + " " + "..";
+					correctAnswer = arrayOfInt[i2];
+				} else {
+					stringToDisplay = stringToDisplay + " " + arrayOfInt[i2];
+				}
+			}
+			String textAnswer = "";
+			System.out.println("Question: " + stringToDisplay);
+			System.out.print("Your answer: ");
+			if (in.hasNextInt()) {
+				answer = in.nextInt();
 			} else {
-				stringToDisplay = stringToDisplay + " " + arrayOfInt[i];
+				textAnswer = in.next();
+				//System.out.println("Извините, но это не число. Попробуйте снова!");
+				flagOfInt = 0;
 			}
-			}
-		String textAnswer = "";
-		System.out.println("Question: " + stringToDisplay);
-		System.out.print("Your answer: ");
-		if (in.hasNextInt()) {
-			answer = in.nextInt();
-		} else {
-			textAnswer = in.next();
-			//System.out.println("Извините, но это не число. Попробуйте снова!");
-			flagOfInt = 0;
-		}
-
-		if (answer == correctAnswer) {
-			System.out.println("Correct!");
-		} else {
-			if (flagOfInt == 1) {
-				System.out.println("'" + answer + "'" + " is wrong answer ;(.");
+			if (answer == correctAnswer) {
+				System.out.println("Correct!");
+				i++;
 			} else {
-				System.out.println("'" + textAnswer + "'" + " is wrong answer ;(.");
-			}
+				if (flagOfInt == 1) {
+					System.out.println("'" + answer + "'" + " is wrong answer ;(.");
+				} else {
+					System.out.println("'" + textAnswer + "'" + " is wrong answer ;(.");
+				}
 
-			System.out.println("Correct answer was '" + correctAnswer + "'");
-			System.out.println("Let's try again," + nameOfUser);
+				System.out.println("Correct answer was '" + correctAnswer + "'");
+				System.out.println("Let's try again," + nameOfUser);
+				break;
+			}
+			if (i == 4) {
+				System.out.println("Congratulations, " + nameOfUser + "!");
+			}
 		}
-		//in.close(); // closing of Scanner here is wrong
- 	}
+	}
 }
-
