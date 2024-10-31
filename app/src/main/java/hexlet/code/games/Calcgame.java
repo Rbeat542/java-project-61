@@ -23,7 +23,7 @@ public class Calcgame {
             int flagOfInt = 1;
             String[] operationsArray = {"+", "-", "*"};
             var operation = operationsArray[random3];
-            System.out.println("Question: " + random1 + operation + random2);
+            System.out.println("Question: " + random1 + " " + operation + " " + random2);
             System.out.print("Your answer: ");
             if (in.hasNextInt()) {
                 answer = in.nextInt();
