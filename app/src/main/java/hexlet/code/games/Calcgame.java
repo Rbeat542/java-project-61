@@ -34,12 +34,13 @@ public class Calcgame {
             }
             switch (operation) {
                 case "+":
-                    calculation = random1 + random2;// Делаем раз
+                    calculation = random1 + random2; // Делаем раз
                     break;
                 case "*":
                     calculation = random1 * random2;
                     break;
-                case "-":
+                //case "-":
+                default:
                     calculation = random1 - random2;
                     break;
             }

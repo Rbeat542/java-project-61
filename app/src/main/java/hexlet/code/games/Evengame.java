@@ -12,8 +12,8 @@ public class Evengame {
     public static void gameLogic(String nameOfUser) {
         var rand = new Random();
         Scanner in2 = new Scanner(System.in);
-        var i =1;
-        while (i <= 3 )  {
+        var i = 1;
+        while (i <= 3) {
             var random = rand.nextInt(99);
             System.out.println("Question: " + random);
             System.out.print("Your answer: ");
@@ -36,6 +36,7 @@ public class Evengame {
     private static String isEven(int rand) {
         if (rand % 2 == 0) {
             return "yes";
-        } return "no";
+        }
+        return "no";
     }
 }

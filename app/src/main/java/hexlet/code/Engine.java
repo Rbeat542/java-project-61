@@ -1,6 +1,10 @@
 package hexlet.code;
 
-import hexlet.code.games.*;
+import hexlet.code.games.Calcgame;
+import hexlet.code.games.Evengame;
+import hexlet.code.games.Gcdgame;
+import hexlet.code.games.Progressiongame;
+import hexlet.code.games.Primegame;
 import java.util.Scanner;
 
 public class Engine {
@@ -16,13 +20,13 @@ public class Engine {
         System.out.println(question);
         if (gameName.equals("Evengame")) {   // how to move class and method as parameter istead of 'switch' use ?
             Evengame.gameLogic(name);
-        } else if (gameName.equals("Calcgame")) {   // how to move class and method as parameter istead of 'switch' use ?
+        } else if (gameName.equals("Calcgame")) {
             Calcgame.gameLogic(name);
-        } else if (gameName.equals("Gcdgame")) {   // how to move class and method as parameter istead of 'switch' use ?
+        } else if (gameName.equals("Gcdgame")) {
             Gcdgame.gameLogic(name);
-        } else if (gameName.equals("Progressiongame")) {   // how to move class and method as parameter istead of 'switch' use ?
+        } else if (gameName.equals("Progressiongame")) {
             Progressiongame.gameLogic(name);
-        } else if (gameName.equals("Primegame")) {   // how to move class and method as parameter istead of 'switch' use ?
+        } else if (gameName.equals("Primegame")) {
             Primegame.gameLogic(name);
         }
     }

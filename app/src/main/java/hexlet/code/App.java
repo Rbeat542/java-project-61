@@ -1,6 +1,10 @@
 package hexlet.code;
 
-import hexlet.code.games.*;
+import hexlet.code.games.Calcgame;
+import hexlet.code.games.Evengame;
+import hexlet.code.games.Gcdgame;
+import hexlet.code.games.Progressiongame;
+import hexlet.code.games.Primegame;
 import java.util.Scanner;
 
 public class App {
@@ -16,13 +20,14 @@ public class App {
         System.out.println("0 - Exit");
         System.out.print("Your choice:");
         Scanner greetDialog = new Scanner(System.in);
-
+/*
         if (greetDialog.hasNextInt()) {
             option = greetDialog.nextInt();
         } else {
             //System.out.println("Извините, но это не число. Попробуйте снова!");
         }
-
+*/
+        option = greetDialog.nextInt();
         if (option == 1) {
             System.out.println("Welcome to the Brain Games!");
             Cli.ask();
