@@ -30,8 +30,9 @@ public class Progressiongame {
 					stringToDisplay = stringToDisplay + " " + arrayOfInt[i2];
 				}
 			}
+			stringToDisplay = stringToDisplay.trim();
 			String textAnswer = "";
-			System.out.println("Question: " + stringToDisplay);
+			System.out.println("Question " + stringToDisplay);
 			System.out.print("Your answer: ");
 			if (in.hasNextInt()) {
 				answer = in.nextInt();
@@ -51,7 +52,7 @@ public class Progressiongame {
 				}
 
 				System.out.println("Correct answer was '" + correctAnswer + "'");
-				System.out.println("Let's try again, " + nameOfUser + "!");
+				System.out.println("Let's try again," + nameOfUser);
 				break;
 			}
 			if (i == 4) {
