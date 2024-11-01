@@ -2,8 +2,8 @@ package hexlet.code;
 
 class User {
     private String name;
-    User(String name) {
-        this.name = name;
+    User(String pname) {
+        this.name = pname;
     }
 
     public void setName(String nameIn) {
