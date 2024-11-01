@@ -13,8 +13,9 @@ public class Primegame {
         var rand = new Random();
         Scanner in = new Scanner(System.in);
         int i = 1;
-        while (i <= 3) {
-            var random = rand.nextInt(99);
+        final int gamesCount  = 3; // задан верхний предел количества попыток игры
+        while (i <= gamesCount) {
+            final int random = rand.nextInt(99);
             System.out.println("Question: " + random);
             System.out.print("Your answer: ");
             String answer = in.nextLine();
@@ -27,7 +28,7 @@ public class Primegame {
                 System.out.println("Let's try again, " + nameOfUser + "!");
                 break;
             }
-            if (i == 4) {
+            if (i > gamesCount) {
                 System.out.println("Congratulations, " + nameOfUser + "!");
             }
         }

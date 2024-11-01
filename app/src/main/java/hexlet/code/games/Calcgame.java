@@ -13,10 +13,11 @@ public class Calcgame {
         var rand = new Random();
         Scanner in = new Scanner(System.in);
         int i = 1;
-        while (i <= 3) {
-            var random1 = rand.nextInt(10);
-            var random2 = rand.nextInt(10);
-            var random3 = rand.nextInt(3);
+        final int gamesCount  = 3; // задан верхний предел количества попыток игры
+        while (i <= gamesCount) {
+            final int random1 = rand.nextInt(10); // задаем число 1
+            final int random2 = rand.nextInt(10); // задаем число 2
+            final int random3 = rand.nextInt(3);  // задаем число 0..2 для выбора случайной арифметической операции
             int answer = 0;
             String textAnswer = "";
             int calculation = 0;
@@ -57,7 +58,7 @@ public class Calcgame {
                 System.out.println("Let's try again, " + nameOfUser + "!");
                 break;
             }
-            if (i == 4) {
+            if (i > gamesCount) {
                 System.out.println("Congratulations, " + nameOfUser + "!");
             }
         }

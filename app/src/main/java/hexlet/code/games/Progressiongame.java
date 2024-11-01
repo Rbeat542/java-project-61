@@ -12,16 +12,19 @@ public class Progressiongame {
     public static void gameLogic(String nameOfUser) {
         var rand = new Random();
         Scanner in = new Scanner(System.in);
-        var i = 1;
-        while (i <= 3) {
+        int i = 1;
+        final int gamesCount  = 3; // задан верхний предел количества попыток игры
+        while (i <= gamesCount) {
             String stringToDisplay = "";
             int answer = 0;
-            int correctAnswer = 999;
-            int[] arrayOfInt = new int[10];
-            var random1 = rand.nextInt(80);
-            var random2 = rand.nextInt(9);
+            int correctAnswer = 0;
+            final int progressionLength = 10;
+            int[] arrayOfInt = new int[progressionLength];
+            final int random1 = rand.nextInt(80); // генерируем начальное число прогрессии
+            final int random2 = rand.nextInt(9);
             int flagOfInt = 1;
-            for (int i2 = 0; i2 <= 9; i2++) {  //заполнение массива из 10 цифр
+            final int digitsInRow = 9;
+            for (int i2 = 0; i2 <= digitsInRow; i2++) {  //заполнение массива из 10 цифр
                 arrayOfInt[i2] = random1 + i2;
                 if (i2 == random2) {
                     stringToDisplay = stringToDisplay + " " + "..";
@@ -55,7 +58,7 @@ public class Progressiongame {
                 System.out.println("Let's try again, " + nameOfUser + "!");
                 break;
             }
-            if (i == 4) {
+            if (i > gamesCount) {
                 System.out.println("Congratulations, " + nameOfUser + "!");
             }
         }

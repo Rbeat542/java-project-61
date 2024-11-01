@@ -13,8 +13,9 @@ public class Evengame {
         var rand = new Random();
         Scanner in2 = new Scanner(System.in);
         var i = 1;
-        while (i <= 3) {
-            var random = rand.nextInt(99);
+        final int gamesCount  = 3; // задан верхний предел количества попыток игры
+        while (i <= gamesCount) {
+            final int random = rand.nextInt(99);
             System.out.println("Question: " + random);
             System.out.print("Your answer: ");
             String answer = in2.nextLine();
@@ -27,7 +28,7 @@ public class Evengame {
                 System.out.println("Let's try again, " + nameOfUser + "!");
                 break;
             }
-            if (i == 4) {
+            if (i > gamesCount) {
                 System.out.println("Congratulations, " + nameOfUser + "!");
             }
         }

@@ -13,10 +13,12 @@ public class Gcdgame {
         var rand = new Random();
         Scanner in = new Scanner(System.in);
 
-        var i = 1;
-        while (i <= 3) {
-            var random1 = rand.nextInt(19) + 1;
-            var random2 = rand.nextInt(19) + 1;
+        int i = 1;
+        final int upperLimit = 19; // задан верхний предел для генерации чисел, чтобы не быть сложным для подсчета.
+        final int gamesCount  = 3; // задан верхний предел количества попыток игры
+        while (i <= gamesCount) {
+            var random1 = rand.nextInt(upperLimit) + 1;  // избавляемся от 0 после генерации случайного числа
+            var random2 = rand.nextInt(upperLimit) + 1;
             int answer = 0;
             int flagOfInt = 1;
             String textAnswer = "";
@@ -44,7 +46,7 @@ public class Gcdgame {
                 System.out.println("Let's try again, " + nameOfUser + "!");
                 break;
             }
-            if (i == 4) {
+            if (i > gamesCount) {
                 System.out.println("Congratulations, " + nameOfUser + "!");
             }
         }
