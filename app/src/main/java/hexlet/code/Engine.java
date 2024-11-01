@@ -1,14 +1,14 @@
 package hexlet.code;
 
-import hexlet.code.games.Calcgame;
-import hexlet.code.games.Evengame;
-import hexlet.code.games.Gcdgame;
-import hexlet.code.games.Progressiongame;
-import hexlet.code.games.Primegame;
+import hexlet.code.games.Calc;
+import hexlet.code.games.Even;
+import hexlet.code.games.Gcd;
+import hexlet.code.games.Progression;
+import hexlet.code.games.Prime;
 import java.util.Scanner;
 
 public class Engine {
-    public static void game(String gameName, String question) {
+    public static void gamestart(String gameName, String question) {
         Scanner in2 = new Scanner(System.in);
         var user = new User("");
         System.out.println("Welcome to the Brain Games!");
@@ -18,16 +18,35 @@ public class Engine {
         var name = user.getName();
         System.out.println("Hello, " + name + "!");
         System.out.println(question);
-        if (gameName.equals("Evengame")) {   // how to move class and method as parameter istead of 'switch' use ?
-            Evengame.gameLogic(name);
-        } else if (gameName.equals("Calcgame")) {
-            Calcgame.gameLogic(name);
-        } else if (gameName.equals("Gcdgame")) {
-            Gcdgame.gameLogic(name);
-        } else if (gameName.equals("Progressiongame")) {
-            Progressiongame.gameLogic(name);
-        } else if (gameName.equals("Primegame")) {
-            Primegame.gameLogic(name);
+        int i = 1;
+        int flagToExit = 0;
+        final int gamesCount = 3; // задан верхний предел количества попыток игры
+        while (i <= gamesCount) {
+            if (gameName.equals("Evengame")) {   // how to move class as parameter istead of 'if ' or 'switch' use ???
+                if (Even.gameLogic(name) == 1) {
+                    break;
+                }
+            } else if (gameName.equals("Gcdgame")) {
+                if (Gcd.gameLogic(name) == 1) {
+                    break;
+                }
+            } else if (gameName.equals("Progressiongame")) {
+                if (Progression.gameLogic(name) == 1) {
+                    break;
+                }
+            } else if (gameName.equals("Primegame")) {
+                if (Prime.gameLogic(name) == 1) {
+                    break;
+                }
+            } else if (gameName.equals("Calcgame")) {
+                if (Calc.gameLogic(name) == 1) {
+                    break;
+                }
+            }
+            i++;
+        }
+        if (i > gamesCount) {
+            System.out.println("Congratulations, " + name + "!");
         }
     }
 }

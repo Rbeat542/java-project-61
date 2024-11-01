@@ -1,10 +1,10 @@
 package hexlet.code;
 
-import hexlet.code.games.Calcgame;
-import hexlet.code.games.Evengame;
-import hexlet.code.games.Gcdgame;
-import hexlet.code.games.Progressiongame;
-import hexlet.code.games.Primegame;
+import hexlet.code.games.Calc;
+import hexlet.code.games.Even;
+import hexlet.code.games.Gcd;
+import hexlet.code.games.Progression;
+import hexlet.code.games.Prime;
 import java.util.Scanner;
 
 public class App {
@@ -27,23 +27,23 @@ public class App {
             greetDialog.close();  //важно, что закрытие диалога должно быть здесь
         }
         if (option == '2')  {
-            Evengame.game();
+            Even.game();
             greetDialog.close();
         }
-        if (option == '3')  {
-            Calcgame.game();
+        if (option == '3') {
+            Calc.game();
             greetDialog.close();
         }
         if (option == '4')  {
-            Gcdgame.game();
+            Gcd.game();
             greetDialog.close();
         }
         if (option == '5')  {
-            Progressiongame.game();
+            Progression.game();
             greetDialog.close();
         }
         if (option == '6')  {
-            Primegame.game();
+            Prime.game();
             greetDialog.close();
         } else {
             greetDialog.close();
