@@ -4,7 +4,6 @@ import hexlet.code.Utils;
 import hexlet.code.Engine;
 import java.util.Scanner;
 
-
 public class Prime {
     public static void start() {
         Engine.gameStart("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
@@ -34,7 +33,7 @@ public class Prime {
         if (number < 2) {
             return "no";
         }
-        for (var i = 2; i <= (number / 2); i++) {
+        for (int i = 2; i <= (number / 2); i++) {
             if (number % i == 0) {
                 return "no";
             }

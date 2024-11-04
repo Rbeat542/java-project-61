@@ -54,7 +54,6 @@ public class Calc {
         Random rand = new Random();
         String[] operationsArray = {"+", "-", "*"};
         final int random3 = rand.nextInt(3);
-        //String operation = operationsArray[random3];
         return operationsArray[random3];
     }
 }

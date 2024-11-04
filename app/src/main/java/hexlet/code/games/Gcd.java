@@ -10,7 +10,6 @@ public class Gcd {
         Scanner in = new Scanner(System.in);
         String[] answers = new String[2];
         int i = 1;
-        //int flagToExit = 0;
         final int gamesCount = 3;
         while (i <= gamesCount) {
             final int limit = 19;

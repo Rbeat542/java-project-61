@@ -3,13 +3,12 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
-
     public static void printStartQuestion(String greet) {
         System.out.println(greet);
     }
 
     public static void gameStart(String greet) {
-        var user = new User("");
+        User user = new User("");
         System.out.println("Welcome to the Brain Games!\nMay I have your name? ");
         Scanner in2 = new Scanner(System.in);
         String str = in2.nextLine();
@@ -35,7 +34,6 @@ public class Engine {
     }
 
     public static void printGoodbay() {
-
         System.out.println("Congratulations, " + User.getName() + "!");
     }
 }

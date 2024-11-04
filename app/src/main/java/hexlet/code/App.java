@@ -9,11 +9,9 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        System.out.println("Please enter the game number and press Enter.");
-        System.out.println("1 - Greet\n2 - Even\n3 - Calculation\n4 - GCD");
-        System.out.println("5 - Progression\n6 - Prime\n0 - Exit\nYour choice:");
-        Scanner greetDialog = new Scanner(System.in);
-        char option = greetDialog.next().charAt(0);
+        greetDialog();
+        Scanner in = new Scanner(System.in);
+        char option = in.next().charAt(0);
         switch (option) {
             case '1':
                 System.out.println("Welcome to the Brain Games!");
@@ -37,6 +35,12 @@ public class App {
             default:
                 break;
         }
-        greetDialog.close();
+        in.close();
+    }
+
+    private static void greetDialog() {
+        System.out.println("Please enter the game number and press Enter.");
+        System.out.println("1 - Greet\n2 - Even\n3 - Calculation\n4 - GCD");
+        System.out.println("5 - Progression\n6 - Prime\n0 - Exit\nYour choice:");
     }
 }
