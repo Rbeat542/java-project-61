@@ -1,68 +1,60 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 import java.util.Random;
 import java.util.Scanner;
 
 public class Calc {
-    public static void game() {
-        Engine.gamestart("Calcgame", "What is the result of the expression?");
+    public static void start() {
+        Engine.gameStart("What is the result of the expression?");
+        Scanner in = new Scanner(System.in);
+        String[] answers = new String[2];
+        String operation = getRandomOperator();
+        int i = 1;
+        final int gamesCount = 3;
+        while (i <= gamesCount) {
+            final int limit = 10;
+            int random1 = Utils.generateRandom(limit);
+            int random2 = Utils.generateRandom(limit);
+            System.out.println("Question: " + random1 + " " + operation + " " + random2);
+            System.out.print("Your answer: ");
+            answers[0] = in.nextLine();
+            answers[1] = getCorrectAnswer(random1, random2, operation);
+            int flagToExit = Engine.compareAnswers(answers);
+            if (flagToExit == 1) {
+                break;
+            }
+            i++;
+        }
+        if (i > gamesCount) {
+            Engine.printGoodbay();
+        }
     }
 
-    public static int gameLogic(String nameOfUser) {
-        var rand = new Random();
-        Scanner in = new Scanner(System.in);
-        final int random1 = rand.nextInt(10); // задаем число 1
-        final int random2 = rand.nextInt(10); // задаем число 2
-        final int random3 = rand.nextInt(3);  // задаем число 0..2 для выбора случайной арифметической операции
-        int signalToQuitLoop = 0;
-        int answer = 0;
-        String textAnswer = "";
+    public static String getCorrectAnswer(int operator1, int operator2, String operation) {
         int calculation = 0;
-        int flagOfInt = 1;
-        String[] operationsArray = {"+", "-", "*"};
-        var operation = operationsArray[random3];
-        System.out.println("Question: " + random1 + " " + operation + " " + random2);
-        System.out.print("Your answer: ");
-        if (in.hasNextInt()) {
-            answer = in.nextInt();
-        } else {
-            flagOfInt = 0;
-            //System.out.println("Извините, но это не число. Попробуйте снова!");
-            textAnswer = in.next();
-        }
         switch (operation) {
             case "+":
-                calculation = random1 + random2; // Делаем раз
+                calculation = operator1 + operator2;
                 break;
             case "*":
-                calculation = random1 * random2;
+                calculation = operator1 * operator2;
                 break;
             case "-":
-                calculation = random1 - random2;
+                calculation = operator1 - operator2;
                 break;
             default:
-                //calculation = random1 - random2;
                 break;
         }
-
-        if (answer == calculation) {
-            System.out.println("Correct!");
-        } else {
-            errorDisplay(answer, calculation, textAnswer, flagOfInt);
-            System.out.println("Let's try again, " + nameOfUser + "!");
-            signalToQuitLoop = 1;
-        }
-        return signalToQuitLoop;
+        return Integer.toString(calculation);
     }
 
-    public static void errorDisplay(int answer2, int calculation2, String textAnswer2, int flag2) { //new
-        if (flag2 == 1) {
-            System.out.println("'" + answer2 + "'" + " is wrong answer ;(.");
-        } else {
-            System.out.println("'" + textAnswer2 + "'" + " is wrong answer ;(.");
-        }
-        System.out.println("Correct answer was '" + calculation2 + "'");
+    private static String getRandomOperator() {
+        Random rand = new Random();
+        String[] operationsArray = {"+", "-", "*"};
+        final int random3 = rand.nextInt(3);
+        //String operation = operationsArray[random3];
+        return operationsArray[random3];
     }
-
 }

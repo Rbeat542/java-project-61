@@ -1,40 +1,36 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import java.util.Random;
+import hexlet.code.Utils;
 import java.util.Scanner;
 
 public class Even {
-    public static void game() {
-        Engine.gamestart("Evengame", "Answer 'yes' if the number is even, otherwise answer 'no'.");
-    }
 
-    public static int gameLogic(String nameOfUser) {
-        var rand = new Random();
+    public static void start() {
+        Engine.gameStart("Answer 'yes' if the number is even, otherwise answer 'no'.");
         Scanner in2 = new Scanner(System.in);
-        int signalToQuitLoop = 0;
-        final int random = rand.nextInt(99);
-        System.out.println("Question: " + random);
-        System.out.print("Your answer: ");
-        String answer = in2.nextLine();
-        String result =  isEven(random);
-        if (answer.equals(result)) {
-            System.out.println("Correct!");
-        } else {
-            errorDisplay(answer, result);
-            System.out.println("Let's try again, " + nameOfUser + "!");
-            signalToQuitLoop = 1;
+        String[] answers = new String[2];
+        int i = 1;
+        final int gamesCount = 3;
+        while (i <= gamesCount) {
+            final int limit = 99;
+            int random = Utils.generateRandom(limit);
+            System.out.println("Question: " + random);
+            System.out.print("Your answer: ");
+            answers[0] = in2.nextLine();
+            answers[1] = getCorrectAnswer(random);
+            int flagToExit = Engine.compareAnswers(answers);
+            if (flagToExit == 1) {
+                break;
+            }
+            i++;
         }
-        return signalToQuitLoop;
+        if (i > gamesCount) {
+            Engine.printGoodbay();
+        }
     }
 
-
-    public static void errorDisplay(String answer2, String result2) { //new
-        System.out.println("'" + answer2 + "'" + " is wrong answer ;(.");
-        System.out.println("Correct answer was '" + result2 + "'");
-    }
-
-    private static String isEven(int rand) {
+    private static String getCorrectAnswer(int rand) { //is even
         if (rand % 2 == 0) {
             return "yes";
         }

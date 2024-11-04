@@ -1,16 +1,16 @@
 package hexlet.code;
 
-class User {
-    private String name;
+public class User {
+    private static String name;
     User(String pname) {
         this.name = pname;
     }
 
-    public void setName(String nameIn) {
-        this.name = nameIn;
+    public static void setName(String nameIn) {
+        User.name = nameIn;
     }
 
-    public String getName() {
-        return this.name;
+    public static String getName() {
+        return name;
     }
 }

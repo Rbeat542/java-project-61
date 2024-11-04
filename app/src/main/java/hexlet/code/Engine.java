@@ -1,52 +1,41 @@
 package hexlet.code;
 
-import hexlet.code.games.Calc;
-import hexlet.code.games.Even;
-import hexlet.code.games.Gcd;
-import hexlet.code.games.Progression;
-import hexlet.code.games.Prime;
 import java.util.Scanner;
 
 public class Engine {
-    public static void gamestart(String gameName, String question) {
-        Scanner in2 = new Scanner(System.in);
+
+    public static void printStartQuestion(String greet) {
+        System.out.println(greet);
+    }
+
+    public static void gameStart(String greet) {
         var user = new User("");
-        System.out.println("Welcome to the Brain Games!");
-        System.out.print("May I have your name? ");
+        System.out.println("Welcome to the Brain Games!\nMay I have your name? ");
+        Scanner in2 = new Scanner(System.in);
         String str = in2.nextLine();
         user.setName(str);
-        var name = user.getName();
-        System.out.println("Hello, " + name + "!");
-        System.out.println(question);
-        int i = 1;
-        int flagToExit = 0;
-        final int gamesCount = 3; // задан верхний предел количества попыток игры
-        while (i <= gamesCount) {
-            if (gameName.equals("Evengame")) {   // how to move class as parameter istead of 'if ' or 'switch' use ???
-                if (Even.gameLogic(name) == 1) {
-                    break;
-                }
-            } else if (gameName.equals("Gcdgame")) {
-                if (Gcd.gameLogic(name) == 1) {
-                    break;
-                }
-            } else if (gameName.equals("Progressiongame")) {
-                if (Progression.gameLogic(name) == 1) {
-                    break;
-                }
-            } else if (gameName.equals("Primegame")) {
-                if (Prime.gameLogic(name) == 1) {
-                    break;
-                }
-            } else if (gameName.equals("Calcgame")) {
-                if (Calc.gameLogic(name) == 1) {
-                    break;
-                }
-            }
-            i++;
+        System.out.println("Hello, " + user.getName() + "!");
+        System.out.println(str);
+        printStartQuestion(greet);
+    }
+
+    public static int compareAnswers(String[] answers) {
+        String userAnswer = answers[0];
+        String correctAnswer = answers[1];
+        int signalToQuit = 0;
+        if (userAnswer.equals(correctAnswer)) {
+            System.out.println("Correct!");
+        } else {
+            System.out.println("'" + userAnswer + "'" + " is wrong answer ;(.");
+            System.out.println("Correct answer was '" + correctAnswer + "'");
+            System.out.println("Let's try again, " + User.getName() + "!");
+            signalToQuit = 1;
         }
-        if (i > gamesCount) {
-            System.out.println("Congratulations, " + name + "!");
-        }
+        return signalToQuit;
+    }
+
+    public static void printGoodbay() {
+
+        System.out.println("Congratulations, " + User.getName() + "!");
     }
 }

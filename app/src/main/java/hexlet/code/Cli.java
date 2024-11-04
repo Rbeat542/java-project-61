@@ -10,7 +10,6 @@ public class Cli {
         String name = inCli.next();
         user.setName(name);
         System.out.println("Hello, " + name + "!");
-        //System.out.println(userX.getName());   // check for getter and setter work
         inCli.close();
     }
 }
