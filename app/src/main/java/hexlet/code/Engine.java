@@ -3,30 +3,27 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
-    public static void printStartQuestion(String greet) {
-        System.out.println(greet);
-    }
 
-    public static void gameStart(String greet) {
-        User user = new User("");
+    public static void gameStart() {
         System.out.println("Welcome to the Brain Games!\nMay I have your name? ");
         Scanner in2 = new Scanner(System.in);
         String str = in2.nextLine();
-        user.setName(str);
-        System.out.println("Hello, " + user.getName() + "!");
+        User.setName(str);
+        System.out.println("Hello, " + User.getName() + "!");
         System.out.println(str);
-        printStartQuestion(greet);
     }
 
-    public static int compareAnswers(String[] answers) {
-        String userAnswer = answers[0];
-        String correctAnswer = answers[1];
+    public static int gameLogic(String[] arr) {
+        Scanner in = new Scanner(System.in);
+        System.out.println(arr[0]);
+        System.out.print("Your answer: ");
+        String input = in.nextLine();
         int signalToQuit = 0;
-        if (userAnswer.equals(correctAnswer)) {
+        if (arr[1].equals(input)) {
             System.out.println("Correct!");
         } else {
-            System.out.println("'" + userAnswer + "'" + " is wrong answer ;(.");
-            System.out.println("Correct answer was '" + correctAnswer + "'");
+            System.out.println("'" + input + "'" + " is wrong answer ;(.");
+            System.out.println("Correct answer was '" + arr[1] + "'");
             System.out.println("Let's try again, " + User.getName() + "!");
             signalToQuit = 1;
         }
@@ -36,4 +33,11 @@ public class Engine {
     public static void printGoodbay() {
         System.out.println("Congratulations, " + User.getName() + "!");
     }
+
+    public static int gamesCount() {
+        final int games = 3;
+        return games;
+    }
+
 }
+

@@ -1,22 +1,22 @@
 package hexlet.code.games;
 
+import hexlet.code.Constant;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
-import java.util.Scanner;
 
 public class Progression {
     public static void start() {
-        Engine.gameStart("What number is missing in the progression?");
-        Scanner in = new Scanner(System.in);
-        String[] answers = new String[2];
-        int i = 1;
-        final int gamesCount = 3;
-        while (i <= gamesCount) {
-            int correctAnswer = createProgression();
-            System.out.print("Your answer: ");
-            answers[0] = in.nextLine();
-            answers[1] = Integer.toString(correctAnswer);
-            int flagToExit = Engine.compareAnswers(answers);
+        Engine.gameStart();
+        int gamesCount = Engine.gamesCount();
+        System.out.println("What number is missing in the progression?");
+        String[][] arr = new String[gamesCount][2];
+        int i = 0;
+        while (i < gamesCount) {
+            final int random1 = Utils.generateRandom(Constant.NUMBERMAX80);
+            final int random2 = Utils.generateRandom(Constant.PROGRLENGTH);
+            arr[i][0] = "Question: " + createProgression(random1, random2);
+            arr[i][1] = Integer.toString(random1  + random2);
+            int flagToExit = Engine.gameLogic(arr[i]);
             if (flagToExit == 1) {
                 break;
             }
@@ -27,25 +27,20 @@ public class Progression {
         }
     }
 
-    private static int createProgression() {
-        int correctAnswer = 0;
-        final int progressionLength = 10;
-        int[] arrayOfInt = new int[progressionLength];
+    private static String createProgression(int number1, int number2) {
+        int[] arrayOfInt = new int[Constant.PROGRLENGTH - 1];
         String stringToDisplay = "";
-        final int random1 = Utils.generateRandom(80);
-        final int random2 = Utils.generateRandom(9);
         final int digitsInRow = 9;
-        for (int i2 = 0; i2 <= digitsInRow; i2++) {
-            arrayOfInt[i2] = random1 + i2;
-            if (i2 == random2) {
+        for (int i2 = 0; i2 < digitsInRow; i2++) {
+            arrayOfInt[i2] = number1 + i2;
+            if (i2 == number2) {
                 stringToDisplay = stringToDisplay + " " + "..";
-                correctAnswer = arrayOfInt[i2];
             } else {
                 stringToDisplay = stringToDisplay + " " + arrayOfInt[i2];
             }
         }
         stringToDisplay = stringToDisplay.trim();
-        System.out.println("Question: " + stringToDisplay);
-        return correctAnswer;
+        return stringToDisplay;
     }
+
 }

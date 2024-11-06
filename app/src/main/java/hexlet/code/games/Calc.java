@@ -1,27 +1,24 @@
 package hexlet.code.games;
 
+import hexlet.code.Constant;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 import java.util.Random;
-import java.util.Scanner;
 
 public class Calc {
     public static void start() {
-        Engine.gameStart("What is the result of the expression?");
-        Scanner in = new Scanner(System.in);
-        String[] answers = new String[2];
-        String operation = getRandomOperator();
-        int i = 1;
-        final int gamesCount = 3;
-        while (i <= gamesCount) {
-            final int limit = 10;
-            int random1 = Utils.generateRandom(limit);
-            int random2 = Utils.generateRandom(limit);
-            System.out.println("Question: " + random1 + " " + operation + " " + random2);
-            System.out.print("Your answer: ");
-            answers[0] = in.nextLine();
-            answers[1] = getCorrectAnswer(random1, random2, operation);
-            int flagToExit = Engine.compareAnswers(answers);
+        Engine.gameStart();
+        int gamesCount = Engine.gamesCount();
+        System.out.println("What is the result of the expression?");
+        String[][] arr = new String[gamesCount][2];
+        int i = 0;
+        while (i < gamesCount) {
+            String operation = getRandomOperator();
+            int random1 = Utils.generateRandom(Constant.NUMBERMAX10);
+            int random2 = Utils.generateRandom(Constant.NUMBERMAX10);
+            arr[i][0] = "Question: " + random1 + " " + operation + " " + random2;
+            arr[i][1] = getCorrectAnswer(random1, random2, operation);
+            int flagToExit = Engine.gameLogic(arr[i]);
             if (flagToExit == 1) {
                 break;
             }

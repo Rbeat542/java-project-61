@@ -1,25 +1,22 @@
 package hexlet.code.games;
 
+import hexlet.code.Constant;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
-import java.util.Scanner;
 
 public class Even {
 
     public static void start() {
-        Engine.gameStart("Answer 'yes' if the number is even, otherwise answer 'no'.");
-        Scanner in2 = new Scanner(System.in);
-        String[] answers = new String[2];
-        int i = 1;
-        final int gamesCount = 3;
-        while (i <= gamesCount) {
-            final int limit = 99;
-            int random = Utils.generateRandom(limit);
-            System.out.println("Question: " + random);
-            System.out.print("Your answer: ");
-            answers[0] = in2.nextLine();
-            answers[1] = getCorrectAnswer(random);
-            int flagToExit = Engine.compareAnswers(answers);
+        Engine.gameStart();
+        int gamesCount = Engine.gamesCount();
+        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
+        String[][] arr = new String[gamesCount][2];
+        int i = 0;
+        while (i < gamesCount) {
+            int random = Utils.generateRandom(Constant.NUMBERMAX80);
+            arr[i][0] = "Question: " + random;
+            arr[i][1] = getCorrectAnswer(random);
+            int flagToExit = Engine.gameLogic(arr[i]);
             if (flagToExit == 1) {
                 break;
             }
@@ -30,7 +27,7 @@ public class Even {
         }
     }
 
-    private static String getCorrectAnswer(int rand) { //is even
+    private static String getCorrectAnswer(int rand) {
         if (rand % 2 == 0) {
             return "yes";
         }
