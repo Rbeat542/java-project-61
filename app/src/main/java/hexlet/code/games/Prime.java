@@ -21,7 +21,7 @@ public class Prime {
             }
             i++;
         }
-        if (i > gamesCount) {
+        if (i >= gamesCount) {
             Engine.printGoodbay();
         }
     }

@@ -22,7 +22,7 @@ public class Gcd {
             }
             i++;
         }
-        if (i > gamesCount) {
+        if (i >= gamesCount) {
             Engine.printGoodbay();
         }
     }

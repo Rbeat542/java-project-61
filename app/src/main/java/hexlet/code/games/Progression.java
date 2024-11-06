@@ -22,7 +22,7 @@ public class Progression {
             }
             i++;
         }
-        if (i > gamesCount) {
+        if (i >= gamesCount) {
             Engine.printGoodbay();
         }
     }
