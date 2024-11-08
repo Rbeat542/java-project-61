@@ -1,30 +1,14 @@
 package hexlet.code.games;
 
-import hexlet.code.Constant;
+import hexlet.code.util.Constant;
 import hexlet.code.Engine;
-import hexlet.code.Utils;
+import hexlet.code.util.Utils;
 
 public class Even {
-
     public static void start() {
         Engine.gameStart();
-        int gamesCount = Engine.gamesCount();
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
-        String[][] arr = new String[gamesCount][2];
-        int i = 0;
-        while (i < gamesCount) {
-            int random = Utils.generateRandom(Constant.NUMBERMAX80);
-            arr[i][0] = "Question: " + random;
-            arr[i][1] = getCorrectAnswer(random);
-            int flagToExit = Engine.gameLogic(arr[i]);
-            if (flagToExit == 1) {
-                break;
-            }
-            i++;
-        }
-        if (i >= gamesCount) {
-            Engine.printGoodbay();
-        }
+        Engine.gameLogic(getAllData());
     }
 
     private static String getCorrectAnswer(int rand) {
@@ -32,5 +16,15 @@ public class Even {
             return "yes";
         }
         return "no";
+    }
+
+    private static String[][] getAllData() {
+        String[][] arr = new String[Constant.GAMESTOPLAY][2];
+        for (int i = 0; i < Constant.GAMESTOPLAY; i++) {
+            int random = Utils.generateRandom(Constant.NUMBERMAX80);
+            arr[i][0] = "Question: " + random;
+            arr[i][1] = getCorrectAnswer(random);
+        }
+        return arr;
     }
 }

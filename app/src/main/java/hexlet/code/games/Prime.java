@@ -1,31 +1,15 @@
 package hexlet.code.games;
 
-import hexlet.code.Constant;
-import hexlet.code.Utils;
+import hexlet.code.util.Constant;
+import hexlet.code.util.Utils;
 import hexlet.code.Engine;
 
 public class Prime {
     public static void start() {
         Engine.gameStart();
-        int gamesCount = Engine.gamesCount();
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-        String[][] arr = new String[gamesCount][2];
-        int i = 0;
-        while (i < gamesCount) {
-            int random = Utils.generateRandom(Constant.NUMBERMAX80);
-            arr[i][0] = "Question: " + random;
-            arr[i][1] = isPrime(random);
-            int flagToExit = Engine.gameLogic(arr[i]);
-            if (flagToExit == 1) {
-                break;
-            }
-            i++;
-        }
-        if (i >= gamesCount) {
-            Engine.printGoodbay();
-        }
+        Engine.gameLogic(getAllData());
     }
-
     private static String isPrime(int number) {
         if (number < 2) {
             return "no";
@@ -36,5 +20,15 @@ public class Prime {
             }
         }
         return "yes";
+    }
+
+    private static String[][] getAllData() {
+        String[][] arr = new String[Constant.GAMESTOPLAY][2];
+        for (int i = 0; i < Constant.GAMESTOPLAY; i++) {
+            int random = Utils.generateRandom(Constant.NUMBERMAX80);
+            arr[i][0] = "Question: " + random;
+            arr[i][1] = isPrime(random);
+        }
+        return arr;
     }
 }

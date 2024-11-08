@@ -2,7 +2,7 @@ package hexlet.code;
 
 public class User {
     private static String name;
-    User(String pname) {
+    public User(String pname) {
         this.name = pname;
     }
 

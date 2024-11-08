@@ -1,4 +1,4 @@
-package hexlet.code;
+package hexlet.code.util;
 
 public final class Constant {
     public static final int STARTINDEX = 0;
@@ -6,7 +6,5 @@ public final class Constant {
     public static final int NUMBERMAX10 = 10;
     public static final int NUMBERMAX19 = 19;
     public static final int PROGRLENGTH = 10;
-
-    private Constant() {
-    }
+    public static final int GAMESTOPLAY = 3;
 }

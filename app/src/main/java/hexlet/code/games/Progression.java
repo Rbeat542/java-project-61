@@ -1,30 +1,14 @@
 package hexlet.code.games;
 
-import hexlet.code.Constant;
+import hexlet.code.util.Constant;
 import hexlet.code.Engine;
-import hexlet.code.Utils;
+import hexlet.code.util.Utils;
 
 public class Progression {
     public static void start() {
         Engine.gameStart();
-        int gamesCount = Engine.gamesCount();
         System.out.println("What number is missing in the progression?");
-        String[][] arr = new String[gamesCount][2];
-        int i = 0;
-        while (i < gamesCount) {
-            final int random1 = Utils.generateRandom(Constant.NUMBERMAX80);
-            final int random2 = Utils.generateRandom(Constant.PROGRLENGTH);
-            arr[i][0] = "Question: " + createProgression(random1, random2);
-            arr[i][1] = Integer.toString(random1  + random2);
-            int flagToExit = Engine.gameLogic(arr[i]);
-            if (flagToExit == 1) {
-                break;
-            }
-            i++;
-        }
-        if (i >= gamesCount) {
-            Engine.printGoodbay();
-        }
+        Engine.gameLogic(getAllData());
     }
 
     private static String createProgression(int number1, int number2) {
@@ -43,4 +27,14 @@ public class Progression {
         return stringToDisplay;
     }
 
+    private static String[][] getAllData() {
+        String[][] arr = new String[Constant.GAMESTOPLAY][2];
+        for (int i = 0; i < Constant.GAMESTOPLAY; i++) {
+            final int random1 = Utils.generateRandom(Constant.NUMBERMAX80);
+            final int random2 = Utils.generateRandom(Constant.PROGRLENGTH);
+            arr[i][0] = "Question: " + createProgression(random1, random2);
+            arr[i][1] = Integer.toString(random1  + random2);
+        }
+        return arr;
+    }
 }

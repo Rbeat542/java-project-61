@@ -1,5 +1,6 @@
-package hexlet.code;
+package hexlet.code.util;
 
+import hexlet.code.User;
 import java.util.Scanner;
 
 public class Cli {
